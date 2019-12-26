@@ -135,7 +135,7 @@ export const programLoanInfo = [
 	// update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
 	{
 		name: 'Full-Stack Bootcamp',
-		url: 'https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFCUP19',
+		url: 'https://my.skills.fund/application?lenderCode=SFCUP19',
 		loanInfo: {
 			// match loanInfo in first metro below
 			maxLoanAmt: 26500,
@@ -202,7 +202,7 @@ export const programLoanInfo = [
 	},
 	{
 		name: 'Program 2',
-		url: 'https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=LENDERCODE2',
+		url: 'https://my.skills.fund/application?lenderCode=LENDERCODE2',
 		loanInfo: {
 			// match loanInfo in first metro below
 			maxLoanAmt: 10995,
@@ -253,7 +253,7 @@ export const programLoanInfo = [
 	},
 	{
 		name: 'Program 3',
-		url: 'https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=LENDERCODE3',
+		url: 'https://my.skills.fund/application?lenderCode=LENDERCODE3',
 		loanInfo: {
 			// match loanInfo in first metro below
 			maxLoanAmt: 15995,

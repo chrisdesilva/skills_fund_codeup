@@ -56,7 +56,7 @@ export const faq = {
 	immediateRepayment: false, // true if immediate repayment is an option
 	multipleLoanLengths: true, // true if 36 and 60 month options are both available
 	multipleLoanTypes: false, // true if both IR and IO are available
-	multiPrograms: false, // only true if there are multiple programs
+	multiPrograms: true, // only true if there are multiple programs
 	onlinePrograms: false, // true if at least one program is remote/online
 	schoolHQState: 'WA',
 	origFee: 0.04,
@@ -75,6 +75,12 @@ export const faq = {
 		{
 			programName: "Codeup's Full Stack Bootcamp",
 			maxAmount: '$26,500',
+			col: false,
+			colAmount: '$6,000'
+		},
+		{
+			programName: "Codeup's Data Science program",
+			maxAmount: '$27,500',
 			col: false,
 			colAmount: '$6,000'
 		}
@@ -97,7 +103,7 @@ export const headline = 'Learn to Code at Codeup'; // update headline as appropr
 
 export const leadContent = {
 	header: 'Your last step on the path toward changing your career',
-	paragraph: `${schoolName} offers a full-stack coding bootcamp to prepare students for a career in software development. ${schoolName} partners with Skills Fund to offer tuition${faq.costOfLiving
+	paragraph: `${schoolName} offers programs that provide students with a foundation for a career in software development or data science. ${schoolName} partners with Skills Fund to offer tuition${faq.costOfLiving
 		? ' and cost of living'
 		: ''} financing so more students like you can access their program.`
 };
@@ -106,7 +112,7 @@ export const threeStepCardText = {
 	step1: '',
 	step2: {
 		header: 'select your program',
-		text: 'Codeup focuses exclusively on its Full-Stack Bootcamp.'
+		text: 'Choose between the Full-Stack Bootcamp and Data Science program.'
 	},
 	step3: `You'll be on your way to an exciting career in tech as part of ${schoolName}'s powerful network.`
 };
@@ -115,9 +121,9 @@ export const netlifyFormName = 'codeup_contact';
 
 export const GATracking = 'UA-68312423-1';
 
-export const hubspotFormId = 'e6004b3c-531e-47a4-81b7-22078c79e78f'; // create Hubspot form, get form id after publishing
+export const hubspotFormId = '666c25e3-b0bb-480b-a813-4dd3d485807e'; // create Hubspot form, get form id after publishing
 
-export const selectAProgram = 'program_name'; // update school name to match form field on Hubspot, *** change to "program_name" if only one program ***"
+export const selectAProgram = 'select_a_codeup_program'; // update school name to match form field on Hubspot, *** change to "program_name" if only one program ***"
 
 // ***** END GENERAL SCHOOL INFO *****
 
@@ -201,36 +207,38 @@ export const programLoanInfo = [
 		]
 	},
 	{
-		name: 'Program 2',
-		url: 'https://my.skills.fund/application?lenderCode=LENDERCODE2',
+		name: 'Data Science',
+		url: 'https://my.skills.fund/application?lenderCode=SFCUPDS19',
 		loanInfo: {
 			// match loanInfo in first metro below
-			maxLoanAmt: 10995,
+			maxLoanAmt: 27500,
 			loanTerm36: true,
 			loanTerm60: true,
 			'0': {
-				k: 5,
-				apr36: 11.16,
-				apr60: 12.51
+				// interest-only
+				k: 7,
+				apr36: 11.08,
+				apr60: 12.48
 			},
-			'1': null
+			'1': null // immediate repayment
 		},
 		defaultLoanType: '0', // leave at 0 for interest-only, set to 1 for immediate repayment
-		showMetros: false,
-		showLoanTypes: false,
-		locations: [ 'Metro 1', 'Metro 2' ],
+		showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+		showLoanTypes: false, // true if both IR and IO are available
+		locations: [ 'Metro 1', 'Metro 2', 'Metro 3' ],
 		metros: [
+			// list in same order as locations array above
 			{
 				location: 'Metro 1',
 				loanInfo: {
-					// match loanInfo to Program 2 loanInfo above
-					maxLoanAmt: 10995,
+					// // match loanInfo to Program 1 above
+					maxLoanAmt: 27500,
 					loanTerm36: true,
 					loanTerm60: true,
 					'0': {
-						k: 5,
-						apr36: 11.16,
-						apr60: 12.51
+						k: 7,
+						apr36: 11.08,
+						apr60: 12.48
 					},
 					'1': null
 				}
@@ -248,69 +256,9 @@ export const programLoanInfo = [
 					},
 					'1': null
 				}
-			}
-		]
-	},
-	{
-		name: 'Program 3',
-		url: 'https://my.skills.fund/application?lenderCode=LENDERCODE3',
-		loanInfo: {
-			// match loanInfo in first metro below
-			maxLoanAmt: 15995,
-			loanTerm36: true,
-			loanTerm60: true,
-			'0': {
-				k: 5,
-				apr36: 11.16,
-				apr60: 12.51
-			},
-			'1': {
-				apr36: 11.25,
-				apr60: 12.55
-			}
-		},
-		defaultLoanType: '0', // leave at 0 for interest-only, set to 1 for immediate repayment
-		showMetros: false,
-		showLoanTypes: false,
-		locations: [ 'Metro A', 'Metro B', 'Metro C' ],
-		metros: [
-			{
-				location: 'Metro A',
-				loanInfo: {
-					// match loanInfo to Program 3 loanInfo above
-					maxLoanAmt: 15995,
-					loanTerm36: true,
-					loanTerm60: true,
-					'0': {
-						k: 5,
-						apr36: 11.16,
-						apr60: 12.51
-					},
-					'1': {
-						apr36: 11.25,
-						apr60: 12.55
-					}
-				}
 			},
 			{
-				location: 'Metro B',
-				loanInfo: {
-					maxLoanAmt: 15545,
-					loanTerm36: true,
-					loanTerm60: true,
-					'0': {
-						k: 5,
-						apr36: 11.16,
-						apr60: 12.51
-					},
-					'1': {
-						apr36: 11.25,
-						apr60: 12.55
-					}
-				}
-			},
-			{
-				location: 'Metro C',
+				location: 'Metro 3',
 				loanInfo: {
 					maxLoanAmt: 20545,
 					loanTerm36: true,
@@ -320,19 +268,144 @@ export const programLoanInfo = [
 						apr36: 11.16,
 						apr60: 12.51
 					},
-					'1': {
-						apr36: 11.25,
-						apr60: 12.55
-					}
+					'1': null
 				}
 			}
 		]
 	}
+	// {
+	// 	name: 'Data Science',
+	// 	url: 'https://my.skills.fund/application?lenderCode=LENDERCODE2',
+	// 	loanInfo: {
+	// 		// match loanInfo in first metro below
+	// 		maxLoanAmt: 10995,
+	// 		loanTerm36: true,
+	// 		loanTerm60: true,
+	// 		'0': {
+	// 			k: 5,
+	// 			apr36: 11.16,
+	// 			apr60: 12.51
+	// 		},
+	// 		'1': null
+	// 	},
+	// 	defaultLoanType: '0', // leave at 0 for interest-only, set to 1 for immediate repayment
+	// 	showMetros: false,
+	// 	showLoanTypes: false,
+	// 	locations: [ 'Metro 1', 'Metro 2' ],
+	// 	metros: [
+	// 		{
+	// 			location: 'Metro 1',
+	// 			loanInfo: {
+	// 				// match loanInfo to Program 2 loanInfo above
+	// 				maxLoanAmt: 10995,
+	// 				loanTerm36: true,
+	// 				loanTerm60: true,
+	// 				'0': {
+	// 					k: 5,
+	// 					apr36: 11.16,
+	// 					apr60: 12.51
+	// 				},
+	// 				'1': null
+	// 			}
+	// 		},
+	// 		{
+	// 			location: 'Metro 2',
+	// 			loanInfo: {
+	// 				maxLoanAmt: 15545,
+	// 				loanTerm36: true,
+	// 				loanTerm60: true,
+	// 				'0': {
+	// 					k: 5,
+	// 					apr36: 11.16,
+	// 					apr60: 12.51
+	// 				},
+	// 				'1': null
+	// 			}
+	// 		}
+	// 	]
+	// },
+	// {
+	// 	name: 'Program 3',
+	// 	url: 'https://my.skills.fund/application?lenderCode=LENDERCODE3',
+	// 	loanInfo: {
+	// 		// match loanInfo in first metro below
+	// 		maxLoanAmt: 15995,
+	// 		loanTerm36: true,
+	// 		loanTerm60: true,
+	// 		'0': {
+	// 			k: 5,
+	// 			apr36: 11.16,
+	// 			apr60: 12.51
+	// 		},
+	// 		'1': {
+	// 			apr36: 11.25,
+	// 			apr60: 12.55
+	// 		}
+	// 	},
+	// 	defaultLoanType: '0', // leave at 0 for interest-only, set to 1 for immediate repayment
+	// 	showMetros: false,
+	// 	showLoanTypes: false,
+	// 	locations: [ 'Metro A', 'Metro B', 'Metro C' ],
+	// 	metros: [
+	// 		{
+	// 			location: 'Metro A',
+	// 			loanInfo: {
+	// 				// match loanInfo to Program 3 loanInfo above
+	// 				maxLoanAmt: 15995,
+	// 				loanTerm36: true,
+	// 				loanTerm60: true,
+	// 				'0': {
+	// 					k: 5,
+	// 					apr36: 11.16,
+	// 					apr60: 12.51
+	// 				},
+	// 				'1': {
+	// 					apr36: 11.25,
+	// 					apr60: 12.55
+	// 				}
+	// 			}
+	// 		},
+	// 		{
+	// 			location: 'Metro B',
+	// 			loanInfo: {
+	// 				maxLoanAmt: 15545,
+	// 				loanTerm36: true,
+	// 				loanTerm60: true,
+	// 				'0': {
+	// 					k: 5,
+	// 					apr36: 11.16,
+	// 					apr60: 12.51
+	// 				},
+	// 				'1': {
+	// 					apr36: 11.25,
+	// 					apr60: 12.55
+	// 				}
+	// 			}
+	// 		},
+	// 		{
+	// 			location: 'Metro C',
+	// 			loanInfo: {
+	// 				maxLoanAmt: 20545,
+	// 				loanTerm36: true,
+	// 				loanTerm60: true,
+	// 				'0': {
+	// 					k: 5,
+	// 					apr36: 11.16,
+	// 					apr60: 12.51
+	// 				},
+	// 				'1': {
+	// 					apr36: 11.25,
+	// 					apr60: 12.55
+	// 				}
+	// 			}
+	// 		}
+	// 	]
+	// }
 ];
 
 // ***** BEGIN LOAN CALC TEXT INFO *****
 export const programMaxText =
-	"Choose the loan amount that works best for you. Borrow up to $26,500 for Codeup's Full Stack Bootcamp tuition.";
+	"Choose the loan amount that works best for you. Borrow up to $26,500 for Codeup's Full Stack Bootcamp tuition or up to $27,500 for the Data Science program.";
 
 export const paymentTable = {
 	headers: [ 'Program', 'Tuition', 'Cost of Living', 'Max Total' ],

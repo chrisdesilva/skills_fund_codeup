@@ -112,7 +112,8 @@ export const threeStepCardText = {
 	step1: '',
 	step2: {
 		header: 'select your program',
-		text: 'Choose between the Full-Stack Bootcamp and Data Science program.'
+		text:
+			'Choose between the Full-Stack Bootcamp and Data Science program. Please note: Data Science is only available in San Antonio.'
 	},
 	step3: `You'll be on your way to an exciting career in tech as part of ${schoolName}'s powerful network.`
 };

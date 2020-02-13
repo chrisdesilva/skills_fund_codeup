@@ -80,7 +80,7 @@ export const faq = {
 		},
 		{
 			programName: "Codeup's Data Science program",
-			maxAmount: '$27,500',
+			maxAmount: '$26,500',
 			col: false,
 			colAmount: '$6,000'
 		}
@@ -212,7 +212,7 @@ export const programLoanInfo = [
 		url: 'https://my.skills.fund/application?lenderCode=SFCUPDS19',
 		loanInfo: {
 			// match loanInfo in first metro below
-			maxLoanAmt: 27500,
+			maxLoanAmt: 26500,
 			loanTerm36: true,
 			loanTerm60: true,
 			'0': {
@@ -233,7 +233,7 @@ export const programLoanInfo = [
 				location: 'Metro 1',
 				loanInfo: {
 					// // match loanInfo to Program 1 above
-					maxLoanAmt: 27500,
+					maxLoanAmt: 26500,
 					loanTerm36: true,
 					loanTerm60: true,
 					'0': {
@@ -406,7 +406,7 @@ export const programLoanInfo = [
 
 // ***** BEGIN LOAN CALC TEXT INFO *****
 export const programMaxText =
-	"Choose the loan amount that works best for you. Borrow up to $26,500 for Codeup's Full Stack Bootcamp tuition or up to $27,500 for the Data Science program.";
+	"Choose the loan amount that works best for you. Borrow up to $26,500 for Codeup's Full Stack Bootcamp or Data Science program tuition.";
 
 export const paymentTable = {
 	headers: [ 'Program', 'Tuition', 'Cost of Living', 'Max Total' ],
